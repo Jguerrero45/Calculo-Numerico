@@ -5,6 +5,7 @@ from flet import Page, TextField, Row, IconButton, icons
 def main(page: Page):
     page.title = "Contador"
     page.vertical_alignment = "center"
+    page.horizontal_alignment = "center"
 
     txt_numer = TextField(value='0', text_align='right', width=100)
 
@@ -28,4 +29,4 @@ def main(page: Page):
     )
 
 
-flet.app(target=main)
+flet.app(target=main, view=flet.WEB_BROWSER)
