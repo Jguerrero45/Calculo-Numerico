@@ -7,7 +7,7 @@ def main(page: Page):
     t = Text()
     page.add(t)
 
-    for i in range(-10):
+    for i in range(10):
         t.value = f'step: {i}'
         page.update()
         time.sleep(1)
