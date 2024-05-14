@@ -1,3 +1,5 @@
+import flet as ft
+
 import numpy as np
 
 
@@ -81,9 +83,8 @@ def solucion(AB):
     return X
 
 
-# INGRESO
-A = np.array([[4, 2, 5], [2, 5, 8], [5, 4, 3]])
-B = np.array([[60.70], [92.90], [56.30]])
+A = np.random.randint(1, 10, size=(3, 3))
+B = np.random.uniform(1, 99, size=(3, 1)).round(2)
 
 
 AB0, AB, X = gauss_jordan(A, B)
