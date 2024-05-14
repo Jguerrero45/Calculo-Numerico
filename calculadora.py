@@ -71,6 +71,19 @@ def main(page: Page):
                     resultado.value = octal_decimal(n)
                 elif drop_lenguaje2.value == 'Hexadecimal':
                     resultado.value = octal_hexadecimal(n)
+            elif drop_lenguaje1.value == 'Hexadecimal':
+                if drop_lenguaje2.value == 'Binario':
+                    resultado.value = hexadecimal_bin(n)
+                elif drop_lenguaje2.value == 'Ternario':
+                    resultado.value = hexadecimal_ternario(n)
+                elif drop_lenguaje2.value == 'Cuartenario':
+                    resultado.value = hexadecimal_cuartenario(n)
+                elif drop_lenguaje2.value == 'Octal':
+                    resultado.value = hexadecimal_octal(n)
+                elif drop_lenguaje2.value == 'Decimal':
+                    resultado.value = hexadecimal_decimal(n)
+                elif drop_lenguaje2.value == 'Hexadecimal':
+                    resultado.value = str(n)
             page.update()
         except:
             resultado.value = 'Ingrese un numero valido'
@@ -121,31 +134,6 @@ def decimal_octal(n):
 def decimal_hexadecimal(n):
     n = hex(n)[2:]
     return n
-
-
-def bin_decimal(n):
-    n = str(n)
-    return int(n, 2)
-
-
-def ternario_decimal(n):
-    n = str(n)
-    return int(n, 3)
-
-
-def cuartenario_decimal(n):
-    n = str(n)
-    return int(n, 4)
-
-
-def octal_decimal(n):
-    n = str(n)
-    return int(n, 8)
-
-
-def hexadecimal_decimal(n):
-    n = str(n)
-    return int(n, 16)
 
 
 def bin_ternario(n):
@@ -262,6 +250,35 @@ def octal_hexadecimal(n):
     decimal = int(n, 8)
     hexadecimal = hex(decimal)[2:]
     return hexadecimal
+
+
+def hexadecimal_bin(n):
+    decimal = int(n, 16)
+    binario = bin(decimal)[2:]
+    return binario
+
+
+def hexadecimal_ternario(n):
+    decimal = int(n, 16)
+    ternario = np.base_repr(decimal, base=3)
+    return ternario
+
+
+def hexadecimal_cuartenario(n):
+    decimal = int(n, 16)
+    cuartenario = np.base_repr(decimal, base=4)
+    return cuartenario
+
+
+def hexadecimal_octal(n):
+    decimal = int(n, 16)
+    octal = oct(decimal)[2:]
+    return octal
+
+
+def hexadecimal_decimal(n):
+    decimal = int(n, 16)
+    return str(decimal)
 
 
 ft.app(target=main)
