@@ -2,23 +2,20 @@ import numpy as np
 
 
 def gauss_jordan(A, B):
-    # Evitar truncamiento en operaciones
+    # evitar truncamiento en operaciones
     A = np.array(A, dtype=float)
 
-    # Matriz aumentada
+    # matriz aumentada
     AB = np.concatenate((A, B), axis=1)
     AB0 = np.copy(AB)
 
-    # Pivoteo parcial por filas
-    AB = pivoteo_parcial_por_filas(AB)
-
-    # Eliminacion hacia adelante
+    # eliminacion hacia adelante
     AB = eliminacion_hacia_adelante(AB)
 
-    # Elimina hacia atras
+    # eimina hacia atras
     AB = eliminacion_hacia_atras(AB)
 
-    # Solución de X
+    # solución de X
     X = solucion(AB)
 
     return AB0, AB, X
@@ -29,7 +26,7 @@ def pivoteo_parcial_por_filas(AB):
     n = tamaño[0]
     m = tamaño[1]
 
-    # Para cada fila en AB
+    # para cada fila en AB
     for i in range(0, n-1):  # columna desde diagonal i en adelante
         columna = abs(AB[i:, i])
         dondemax = np.argmax(columna)
@@ -88,12 +85,10 @@ def solucion(AB):
 A = np.array([[4, 2, 5], [2, 5, 8], [5, 4, 3]])
 B = np.array([[60.70], [92.90], [56.30]])
 
+
 AB0, AB, X = gauss_jordan(A, B)
 
-# SALIDA
 print('Matriz aumentada:')
 print(AB0)
-print('Pivoteo parcial por filas')
-print(AB)
 print('solución de X: ')
 print(X)
